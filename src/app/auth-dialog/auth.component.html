@@ -1,1 +1,8 @@
-Auth url: {{login}}
+<app-login-form (onFormResult)="onLoginFormResult($event)"
+                *ngIf="login">
+
+</app-login-form>
+<app-register-form (onFormResult)="onRegisterFormResult($event)"
+                   *ngIf="!login">
+
+</app-register-form>

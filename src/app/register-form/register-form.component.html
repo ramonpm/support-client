@@ -1,3 +1,37 @@
-<p>
-  register-form works!
-</p>
+<form (ngSubmit)="onSignUpSubmit()" #f="ngForm">
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input id="email"
+           type="email"
+           required
+           name='email'
+           [(ngModel)]="signUpUser.email"
+           class="form-control validate">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input id="password"
+           type="password"
+           required
+           name='password'
+           [(ngModel)]="signUpUser.password"
+           class="form-control validate">
+  </div>
+  <div class="form-group">
+    <label for="password_confirmation">Password confirmation</label>
+    <input id="password_confirmation"
+           type="password"
+           required
+           name='password_confirmation'
+           [(ngModel)]="signUpUser.passwordConfirmation"
+           class="form-control validate">
+  </div>
+  <span *ngIf="signUpUser.password != signUpUser.passwordConfirmation"
+        style="color:red">
+      Passwords must match
+  </span>
+  <button type="submit" class="btn btn-default"
+          [disabled]="!(f.valid) || !(signUpUser.password == signUpUser.passwordConfirmation)">
+    Sign up
+  </button>
+</form>
