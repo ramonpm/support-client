@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {AuthComponent} from './auth-dialog/auth.component';
 import {TicketsComponent} from './tickets/tickets.component';
+import {AuthGuard} from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -27,7 +28,8 @@ export const routes: Routes = [
   {
     path: 'tickets',
     component: TicketsComponent,
-    data: { stateName: 'tickets' }
+    data: { stateName: 'tickets' },
+    canActivate: [AuthGuard]
   }
 ];
 
