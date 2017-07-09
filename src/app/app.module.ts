@@ -11,6 +11,7 @@ import { AuthComponent } from './auth-dialog/auth.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import {FormsModule} from '@angular/forms';
+import {AuthService} from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
     FormsModule
   ],
-  providers: [Angular2TokenService],
+  providers: [Angular2TokenService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

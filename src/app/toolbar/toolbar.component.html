@@ -11,17 +11,14 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
       <ul class="nav navbar-nav">
-        <li *ngIf="!tokenAuthService.userSignedIn()">
+        <li *ngIf="!(authService.userSignedIn$ | async)">
           <a [routerLink]="['/login']">LOGIN</a>
         </li>
-        <li *ngIf="!tokenAuthService.userSignedIn()">
+        <li *ngIf="!(authService.userSignedIn$ | async)">
           <a [routerLink]="['/register']">REGISTER</a>
         </li>
-        <li *ngIf="tokenAuthService.userSignedIn()">
-          <a [routerLink]="['/profile']">PROFILE</a>
-        </li>
-        <li *ngIf="tokenAuthService.userSignedIn()">
-          <a>LOGOUT</a>
+        <li *ngIf="(authService.userSignedIn$ | async)" style="cursor: pointer;">
+          <a (click)="logOut()">LOGOUT</a>
         </li>
       </ul>
     </div>

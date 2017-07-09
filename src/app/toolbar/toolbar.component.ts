@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {AuthComponent} from '../auth-dialog/auth.component';
-import {Angular2TokenService} from 'angular2-token';
+import {AuthService} from '../services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -9,10 +9,14 @@ import {Angular2TokenService} from 'angular2-token';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor(public tokenAuthService: Angular2TokenService) {
+  constructor(public authService: AuthService, private router: Router) {
   }
 
   ngOnInit() {
+  }
+
+  logOut() {
+    this.authService.logOutUser().subscribe(() => this.router.navigate(['/']));
   }
 
 }
