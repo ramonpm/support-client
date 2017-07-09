@@ -12,6 +12,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import {FormsModule} from '@angular/forms';
 import {AuthService} from './services/auth.service';
+import { TicketsComponent } from './tickets/tickets.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {AuthService} from './services/auth.service';
     ToolbarComponent,
     AuthComponent,
     LoginFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    TicketsComponent
   ],
   imports: [
     HttpModule,

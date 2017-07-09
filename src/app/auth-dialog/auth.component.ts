@@ -29,7 +29,7 @@ export class AuthComponent implements OnInit {
 
   onRegisterFormResult(e) {
     if (e.signedUp) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/tickets']);
     } else {
       alert(e.err.json().errors.full_messages[0])
     }

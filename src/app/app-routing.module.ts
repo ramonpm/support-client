@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {AuthComponent} from './auth-dialog/auth.component';
+import {TicketsComponent} from './tickets/tickets.component';
 
 export const routes: Routes = [
   {
@@ -22,6 +23,11 @@ export const routes: Routes = [
     path: 'register',
     component: AuthComponent,
     data: { stateName: 'register' }
+  },
+  {
+    path: 'tickets',
+    component: TicketsComponent,
+    data: { stateName: 'tickets' }
   }
 ];
 
