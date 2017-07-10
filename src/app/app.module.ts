@@ -14,6 +14,7 @@ import {FormsModule} from '@angular/forms';
 import {AuthService} from './services/auth.service';
 import {TicketsComponent} from './tickets/tickets.component';
 import {AuthGuard} from './guards/auth.guard';
+import { TicketFormComponent } from './ticket-form/ticket-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {AuthGuard} from './guards/auth.guard';
     AuthComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    TicketsComponent
+    TicketsComponent,
+    TicketFormComponent
   ],
   imports: [
     HttpModule,
