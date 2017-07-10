@@ -10,19 +10,20 @@ import {Angular2TokenService} from 'angular2-token';
 })
 export class ToolbarComponent implements OnInit {
 
-  isAdmin = false;
-
   constructor(public authService: AuthService,
               public authTokenService: Angular2TokenService,
               private router: Router) {
   }
 
   ngOnInit() {
-    this.isAdmin = this.authTokenService.currentUserData && this.authTokenService.currentUserData['admin'];
+  }
+
+  isAdmin(): boolean {
+    return this.authTokenService.currentUserData && this.authTokenService.currentUserData['admin'];
   }
 
   logOut() {
-    this.authService.logOutUser().subscribe(() => this.router.navigate(['/']));
+    this.authService.logOutUser().subscribe(() => this.router.navigate(['/login']));
   }
 
 }
