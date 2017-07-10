@@ -6,6 +6,7 @@ import {AuthGuard} from './guards/auth.guard';
 import {TicketFormComponent} from './ticket-form/ticket-form.component';
 import {TicketShowComponent} from './ticket-show/ticket-show.component';
 import {UsersComponent} from './users/users.component';
+import {AdminGuard} from './guards/admin.guard';
 
 export const routes: Routes = [
   {
@@ -49,7 +50,7 @@ export const routes: Routes = [
   {
     path: 'users',
     component: UsersComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, AdminGuard]
   }
 ];
 

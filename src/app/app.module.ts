@@ -16,6 +16,7 @@ import {AuthGuard} from './guards/auth.guard';
 import {TicketFormComponent} from './ticket-form/ticket-form.component';
 import {TicketShowComponent} from './ticket-show/ticket-show.component';
 import { UsersComponent } from './users/users.component';
+import {AdminGuard} from './guards/admin.guard';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { UsersComponent } from './users/users.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [Angular2TokenService, AuthService, AuthGuard],
+  providers: [Angular2TokenService, AuthService, AuthGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
