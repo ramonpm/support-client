@@ -1,4 +1,6 @@
-<button [routerLink]="['/tickets/new']" class="btn btn-primary">Open a Ticket</button>
+<button [routerLink]="['/tickets/new']" class="btn btn-primary">
+  <i class="glyphicon glyphicon-plus"></i> Open a Ticket
+</button>
 <br><br>
 <table class="table table-bordered table-striped">
   <thead>
@@ -14,7 +16,14 @@
     <td>{{ticket.id}}</td>
     <td>{{ticket.title}}</td>
     <td>{{ticket.status}}</td>
-    <td>A e B</td>
+    <td class="table-actions">
+      <button routerLink="{{ticket.id}}/edit" class="btn btn-sm btn-warning">
+        <i class="glyphicon glyphicon-pencil"></i>
+      </button>
+      <button (click)="deleteTicket(ticket)" class="btn btn-sm btn-danger" title="Remove">
+        <i class="glyphicon glyphicon-trash"></i>
+      </button>
+    </td>
   </tr>
   </tbody>
 </table>
