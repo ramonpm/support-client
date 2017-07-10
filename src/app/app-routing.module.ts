@@ -5,17 +5,13 @@ import {AuthComponent} from './auth-dialog/auth.component';
 import {TicketsComponent} from './tickets/tickets.component';
 import {AuthGuard} from './guards/auth.guard';
 import {TicketFormComponent} from './ticket-form/ticket-form.component';
-import {TicketShowComponent} from "./ticket-show/ticket-show.component";
+import {TicketShowComponent} from './ticket-show/ticket-show.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    redirectTo: '/tickets',
     pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    component: HomeComponent
   },
   {
     path: 'login',

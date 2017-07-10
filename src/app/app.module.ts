@@ -4,7 +4,6 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {Angular2TokenService} from 'angular2-token';
 import {HttpModule} from '@angular/http';
-import {HomeComponent} from './home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import {AuthComponent} from './auth-dialog/auth.component';
@@ -14,13 +13,12 @@ import {FormsModule} from '@angular/forms';
 import {AuthService} from './services/auth.service';
 import {TicketsComponent} from './tickets/tickets.component';
 import {AuthGuard} from './guards/auth.guard';
-import { TicketFormComponent } from './ticket-form/ticket-form.component';
-import { TicketShowComponent } from './ticket-show/ticket-show.component';
+import {TicketFormComponent} from './ticket-form/ticket-form.component';
+import {TicketShowComponent} from './ticket-show/ticket-show.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     ToolbarComponent,
     AuthComponent,
     LoginFormComponent,
