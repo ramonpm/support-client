@@ -15,7 +15,6 @@ export class TicketShowComponent implements OnInit {
   ticket: Ticket = new Ticket();
   answers: Array<Answer> = [];
   newAnswer: Answer = new Answer();
-  TicketStatus = TicketStatus;
 
   constructor(private route: ActivatedRoute,
               private _tokenService: Angular2TokenService) {

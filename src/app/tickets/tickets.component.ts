@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Ticket} from '../models/ticket';
 import {Angular2TokenService} from 'angular2-token';
 import {TicketStatus} from '../enums/ticket-status.enum';
+import {User} from '../models/user';
 
 @Component({
   selector: 'app-tickets',
@@ -12,6 +13,7 @@ export class TicketsComponent implements OnInit {
 
   TicketStatus = TicketStatus;
   tickets: Array<Ticket>;
+  loggedUser: any = {};
 
   constructor(private _tokenService: Angular2TokenService) {
   }
@@ -22,7 +24,10 @@ export class TicketsComponent implements OnInit {
 
   getTickets() {
     this._tokenService.get('tickets').subscribe(
-      res => this.tickets = res.json(),
+      res => {
+        this.tickets = res.json();
+        this.loggedUser = this._tokenService.currentUserData;
+      },
       error => console.log('Error retrieving tickets')
     );
   }
