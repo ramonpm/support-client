@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Ticket} from '../models/ticket';
 import {Angular2TokenService} from 'angular2-token';
+import {TicketStatus} from '../enums/ticket-status.enum';
 
 @Component({
   selector: 'app-tickets',
@@ -9,6 +10,7 @@ import {Angular2TokenService} from 'angular2-token';
 })
 export class TicketsComponent implements OnInit {
 
+  TicketStatus = TicketStatus;
   tickets: Array<Ticket>;
 
   constructor(private _tokenService: Angular2TokenService) {

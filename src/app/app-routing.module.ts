@@ -40,7 +40,7 @@ export const routes: Routes = [
   }
   ,
   {
-    path: 'tickets/edit',
+    path: 'tickets/:id/edit',
     component: TicketFormComponent,
     data: { stateName: 'edit-ticket' },
     canActivate: [AuthGuard]

@@ -15,7 +15,7 @@
   <tr *ngFor="let ticket of tickets">
     <td>{{ticket.id}}</td>
     <td>{{ticket.title}}</td>
-    <td>{{ticket.status}}</td>
+    <td>{{TicketStatus[ticket.status]}}</td>
     <td class="table-actions">
       <button routerLink="{{ticket.id}}/edit" class="btn btn-sm btn-warning">
         <i class="glyphicon glyphicon-pencil"></i>
