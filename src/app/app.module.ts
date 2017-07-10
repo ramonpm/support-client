@@ -15,6 +15,7 @@ import {AuthService} from './services/auth.service';
 import {TicketsComponent} from './tickets/tickets.component';
 import {AuthGuard} from './guards/auth.guard';
 import { TicketFormComponent } from './ticket-form/ticket-form.component';
+import { TicketShowComponent } from './ticket-show/ticket-show.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { TicketFormComponent } from './ticket-form/ticket-form.component';
     LoginFormComponent,
     RegisterFormComponent,
     TicketsComponent,
-    TicketFormComponent
+    TicketFormComponent,
+    TicketShowComponent
   ],
   imports: [
     HttpModule,

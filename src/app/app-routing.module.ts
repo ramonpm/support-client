@@ -5,6 +5,7 @@ import {AuthComponent} from './auth-dialog/auth.component';
 import {TicketsComponent} from './tickets/tickets.component';
 import {AuthGuard} from './guards/auth.guard';
 import {TicketFormComponent} from './ticket-form/ticket-form.component';
+import {TicketShowComponent} from "./ticket-show/ticket-show.component";
 
 export const routes: Routes = [
   {
@@ -37,12 +38,16 @@ export const routes: Routes = [
     component: TicketFormComponent,
     data: { stateName: 'new-ticket' },
     canActivate: [AuthGuard]
-  }
-  ,
+  },
   {
     path: 'tickets/:id/edit',
     component: TicketFormComponent,
     data: { stateName: 'edit-ticket' },
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'tickets/:id/show',
+    component: TicketShowComponent,
     canActivate: [AuthGuard]
   }
 ];

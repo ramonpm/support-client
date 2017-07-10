@@ -1,0 +1,30 @@
+<h1>#{{ticket.id}} - {{ticket.title}}</h1>
+
+{{ticket.description}}
+
+<br><br>
+
+<div *ngFor="let answer of answers" class="panel panel-default">
+  <div class="panel-body">
+    Basic panel example
+  </div>
+</div>
+
+<h2>Answer this ticket</h2>
+<form (ngSubmit)="onAnswerSubmit()" #f="ngForm">
+  <input type="hidden" name="ticket_id" value="{{ticket.id}}">
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea name="message"
+              id="message"
+              required
+              class="form-control validate"
+              [(ngModel)]="newAnswer.message"
+              cols="30" rows="10"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary"
+          [disabled]="!(f.valid)"
+          [ngClass]="{'disabled': !(f.valid)}">
+    Save
+  </button>
+</form>
