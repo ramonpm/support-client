@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Ticket} from '../models/ticket';
 import {Angular2TokenService} from 'angular2-token';
 import {TicketStatus} from '../enums/ticket-status.enum';
-import {User} from '../models/user';
+import {UserType} from '../enums/user-type.enum';
 
 @Component({
   selector: 'app-tickets',
@@ -12,6 +12,7 @@ import {User} from '../models/user';
 export class TicketsComponent implements OnInit {
 
   TicketStatus = TicketStatus;
+  UserType = UserType;
   tickets: Array<Ticket>;
   loggedUser: any = {};
 

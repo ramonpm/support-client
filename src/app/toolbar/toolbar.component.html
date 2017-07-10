@@ -23,7 +23,7 @@
         <li *ngIf="(authService.userSignedIn$ | async) && isAdmin()">
           <a [routerLink]="['/users']">USERS</a>
         </li>
-        <li *ngIf="(authService.userSignedIn$ | async)">
+        <li *ngIf="(authService.userSignedIn$ | async) && authTokenService.currentUserData">
           <a>{{authTokenService.currentUserData.email}}</a>
         </li>
         <li *ngIf="(authService.userSignedIn$ | async)" style="cursor: pointer;">
