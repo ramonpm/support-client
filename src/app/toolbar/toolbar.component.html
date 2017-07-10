@@ -20,6 +20,9 @@
         <li *ngIf="(authService.userSignedIn$ | async)">
           <a [routerLink]="['/tickets']">TICKETS</a>
         </li>
+        <li *ngIf="(authService.userSignedIn$ | async) && authTokenService.currentUserData['admin']">
+          <a [routerLink]="['/users']">USERS</a>
+        </li>
         <li *ngIf="(authService.userSignedIn$ | async)">
           <a>{{authTokenService.currentUserData.email}}</a>
         </li>

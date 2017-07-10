@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {HomeComponent} from './home/home.component';
 import {AuthComponent} from './auth-dialog/auth.component';
 import {TicketsComponent} from './tickets/tickets.component';
 import {AuthGuard} from './guards/auth.guard';
 import {TicketFormComponent} from './ticket-form/ticket-form.component';
 import {TicketShowComponent} from './ticket-show/ticket-show.component';
+import {UsersComponent} from './users/users.component';
 
 export const routes: Routes = [
   {
@@ -16,34 +16,39 @@ export const routes: Routes = [
   {
     path: 'login',
     component: AuthComponent,
-    data: { stateName: 'login' }
+    data: {stateName: 'login'}
   },
   {
     path: 'register',
     component: AuthComponent,
-    data: { stateName: 'register' }
+    data: {stateName: 'register'}
   },
   {
     path: 'tickets',
     component: TicketsComponent,
-    data: { stateName: 'tickets' },
+    data: {stateName: 'tickets'},
     canActivate: [AuthGuard]
   },
   {
     path: 'tickets/new',
     component: TicketFormComponent,
-    data: { stateName: 'new-ticket' },
+    data: {stateName: 'new-ticket'},
     canActivate: [AuthGuard]
   },
   {
     path: 'tickets/:id/edit',
     component: TicketFormComponent,
-    data: { stateName: 'edit-ticket' },
+    data: {stateName: 'edit-ticket'},
     canActivate: [AuthGuard]
   },
   {
     path: 'tickets/:id/show',
     component: TicketShowComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'users',
+    component: UsersComponent,
     canActivate: [AuthGuard]
   }
 ];

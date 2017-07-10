@@ -15,6 +15,7 @@ import {TicketsComponent} from './tickets/tickets.component';
 import {AuthGuard} from './guards/auth.guard';
 import {TicketFormComponent} from './ticket-form/ticket-form.component';
 import {TicketShowComponent} from './ticket-show/ticket-show.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {TicketShowComponent} from './ticket-show/ticket-show.component';
     RegisterFormComponent,
     TicketsComponent,
     TicketFormComponent,
-    TicketShowComponent
+    TicketShowComponent,
+    UsersComponent
   ],
   imports: [
     HttpModule,
