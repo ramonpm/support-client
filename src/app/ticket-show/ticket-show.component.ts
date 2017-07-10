@@ -33,6 +33,7 @@ export class TicketShowComponent implements OnInit {
           res => {
             this.ticket = res.json();
             this.initNewAnswer();
+            this.getAnswers();
           },
           error => console.log('Error retrieving ticket')
         );
@@ -47,6 +48,13 @@ export class TicketShowComponent implements OnInit {
         this.initNewAnswer();
       },
       error => console.log('Error creating answer')
+    );
+  }
+
+  getAnswers() {
+    this._tokenService.get('tickets/' + this.ticket.id + '/answers').subscribe(
+      res => this.answers = res.json(),
+      error => console.log('Error retrieving answers')
     );
   }
 
