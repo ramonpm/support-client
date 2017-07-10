@@ -7,6 +7,7 @@ import {TicketFormComponent} from './ticket-form/ticket-form.component';
 import {TicketShowComponent} from './ticket-show/ticket-show.component';
 import {UsersComponent} from './users/users.component';
 import {AdminGuard} from './guards/admin.guard';
+import {RegisterFormComponent} from './register-form/register-form.component';
 
 export const routes: Routes = [
   {
@@ -50,6 +51,18 @@ export const routes: Routes = [
   {
     path: 'users',
     component: UsersComponent,
+    canActivate: [AuthGuard, AdminGuard]
+  },
+  {
+    path: 'users/new',
+    component: RegisterFormComponent,
+    data: {stateName: 'admin-new-user'},
+    canActivate: [AuthGuard, AdminGuard]
+  },
+  {
+    path: 'users/:id/edit',
+    component: RegisterFormComponent,
+    data: {stateName: 'admin-edit-user'},
     canActivate: [AuthGuard, AdminGuard]
   }
 ];

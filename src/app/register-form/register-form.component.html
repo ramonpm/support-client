@@ -26,6 +26,26 @@
            [(ngModel)]="signUpUser.passwordConfirmation"
            class="form-control validate">
   </div>
+  <div *ngIf="isAdmin()" class="form-group">
+    <label class="radio-inline">
+      <input type="radio"
+             [(ngModel)]="signUpUser.type"
+             value="{{UserType.CUSTOMER}}"
+             name="type"> {{UserType.CUSTOMER}}
+    </label>
+    <label class="radio-inline">
+      <input type="radio"
+             [(ngModel)]="signUpUser.type"
+             value="{{UserType.AGENT}}"
+             name="type"> {{UserType.AGENT}}
+    </label>
+    <label class="radio-inline">
+      <input type="radio"
+             [(ngModel)]="signUpUser.type"
+             value="{{UserType.ADMIN}}"
+             name="type"> {{UserType.ADMIN}}
+    </label>
+  </div>
   <span *ngIf="signUpUser.password != signUpUser.passwordConfirmation"
         style="color:red">
       Passwords must match

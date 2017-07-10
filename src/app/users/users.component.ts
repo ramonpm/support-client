@@ -27,4 +27,11 @@ export class UsersComponent implements OnInit {
       error => console.log('Error retrieving users')
     );
   }
+
+  deleteUser(user: User) {
+    this._tokenService.delete('users/' + user.id).subscribe(
+      res => this.users.splice(this.users.indexOf(user), 1),
+      error => console.log('Error deleting user.')
+    );
+  }
 }
