@@ -5,12 +5,12 @@ import {Angular2TokenService} from 'angular2-token';
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-  constructor(private authTokenService: Angular2TokenService,
+  constructor(private _tokenService: Angular2TokenService,
               private router: Router) {
   }
 
   canActivate() {
-    if (this.authTokenService.userSignedIn()) {
+    if (this._tokenService.userSignedIn() && this._tokenService.currentUserData) {
       return true;
     } else {
       this.router.navigate(['/login']);

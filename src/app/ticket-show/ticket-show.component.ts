@@ -4,6 +4,7 @@ import {Angular2TokenService} from 'angular2-token';
 import {TicketStatus} from '../enums/ticket-status.enum';
 import {Answer} from '../models/answer';
 import {ActivatedRoute} from '@angular/router';
+import {UserType} from '../enums/user-type.enum';
 
 @Component({
   selector: 'app-ticket-show',
@@ -12,6 +13,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class TicketShowComponent implements OnInit {
 
+  TicketStatus = TicketStatus;
+  UserType = UserType;
   ticket: Ticket = new Ticket();
   answers: Array<Answer> = [];
   newAnswer: Answer = new Answer();
@@ -45,6 +48,9 @@ export class TicketShowComponent implements OnInit {
       res => {
         this.answers.push(res.json());
         this.initNewAnswer();
+        if (this.ticket.status === TicketStatus.PENDING) {
+          this.ticket.status = TicketStatus.ANSWERED;
+        }
       },
       error => console.log('Error creating answer')
     );

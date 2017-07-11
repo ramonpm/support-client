@@ -1,4 +1,4 @@
-<h1>#{{ticket.id}} - {{ticket.title}}</h1>
+<h1>#{{ticket.id}} - {{TicketStatus[ticket.status] | titlecase}} - {{ticket.title}}</h1>
 
 {{ticket.description}}
 
@@ -7,7 +7,9 @@
 <hr>
 <h2>Answers</h2>
 <div *ngFor="let answer of answers" class="alert"
-     [ngClass]="{'alert-info': !answer.user.admin, 'alert-warning': answer.user.admin}">
+     [ngClass]="{'alert-info': answer.user.type == UserType.CUSTOMER,
+                 'alert-warning': answer.user.type == UserType.AGENT,
+                 'alert-danger': answer.user.type == UserType.ADMIN}">
   <dl class="dl-horizontal">
     <dt>Autor:</dt>
     <dd>{{answer.user.email}}</dd>
