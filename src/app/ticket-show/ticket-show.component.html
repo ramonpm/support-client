@@ -1,9 +1,16 @@
 <h1>#{{ticket.id}} - {{TicketStatus[ticket.status] | titlecase}} - {{ticket.title}}</h1>
+<dl class="dl-horizontal">
+  <dt>Autor:</dt>
+  <dd>{{ticket.user.email}}</dd>
+  <dt>Description:</dt>
+  <dd>{{ticket.description}}</dd>
+  <dt *ngIf="ticket.finished_at">Finished at:</dt>
+  <dd *ngIf="ticket.finished_at">{{ticket.finished_at | date: 'medium'}}</dd>
+</dl>
 
-{{ticket.description}}
-
-<br><br>
-
+<button *ngIf="!ticket.finished_at" id="closeButton" (click)="closeTicket()" class="btn btn-danger">
+  Close
+</button>
 <hr>
 <h2>Answers</h2>
 <div *ngFor="let answer of answers" class="alert"
@@ -35,3 +42,5 @@
     Send
   </button>
 </form>
+
+

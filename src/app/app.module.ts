@@ -12,10 +12,9 @@ import {RegisterFormComponent} from './register-form/register-form.component';
 import {FormsModule} from '@angular/forms';
 import {AuthService} from './services/auth.service';
 import {TicketsComponent} from './tickets/tickets.component';
-import {AuthGuard} from './guards/auth.guard';
 import {TicketFormComponent} from './ticket-form/ticket-form.component';
 import {TicketShowComponent} from './ticket-show/ticket-show.component';
-import { UsersComponent } from './users/users.component';
+import {UsersComponent} from './users/users.component';
 import {AdminGuard} from './guards/admin.guard';
 
 @NgModule({
@@ -36,7 +35,7 @@ import {AdminGuard} from './guards/admin.guard';
     BrowserModule,
     FormsModule
   ],
-  providers: [Angular2TokenService, AuthService, AuthGuard, AdminGuard],
+  providers: [Angular2TokenService, AuthService, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

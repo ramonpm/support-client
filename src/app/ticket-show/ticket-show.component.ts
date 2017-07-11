@@ -56,6 +56,15 @@ export class TicketShowComponent implements OnInit {
     );
   }
 
+  closeTicket() {
+    this._tokenService.put('tickets/' + this.ticket.id + '/finish', null).subscribe(
+      res => {
+        this.ticket = res.json()
+      },
+      error => console.log('Error finishing this ticket')
+    );
+  }
+
   getAnswers() {
     this._tokenService.get('tickets/' + this.ticket.id + '/answers').subscribe(
       res => this.answers = res.json(),

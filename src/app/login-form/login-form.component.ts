@@ -26,7 +26,6 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSignInSubmit() {
-
     this.authService.logInUser(this.signInUser).subscribe(
       res => {
         if (res.status === 200) {
@@ -38,7 +37,6 @@ export class LoginFormComponent implements OnInit {
         this.onFormResult.emit({signedIn: false, err});
       }
     );
-
   }
 
 }
