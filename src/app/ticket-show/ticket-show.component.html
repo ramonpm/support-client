@@ -8,7 +8,7 @@
   <dd *ngIf="ticket.closed_at">{{ticket.closed_at | date: 'medium'}}</dd>
 </dl>
 
-<button *ngIf="!ticket.closed_at" id="closeButton" (click)="closeTicket()" class="btn btn-danger">
+<button *ngIf="!ticket.closed_at && (_tokenService.currentUserData.type != UserType.CUSTOMER)" id="closeButton" (click)="closeTicket()" class="btn btn-danger">
   Close
 </button>
 <hr>

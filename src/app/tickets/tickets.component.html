@@ -23,10 +23,12 @@
       <button routerLink="{{ticket.id}}/show" class="btn btn-sm btn-info">
         <i class="glyphicon glyphicon-search"></i>
       </button>
-      <button *ngIf="loggedUser.type != UserType.AGENT" routerLink="{{ticket.id}}/edit" class="btn btn-sm btn-warning">
+      <button *ngIf="(loggedUser.type != UserType.AGENT) && (ticket.status != TicketStatus.CLOSED)"
+              routerLink="{{ticket.id}}/edit" class="btn btn-sm btn-warning">
         <i class="glyphicon glyphicon-pencil"></i>
       </button>
-      <button *ngIf="loggedUser.type != UserType.AGENT" (click)="deleteTicket(ticket)" class="btn btn-sm btn-danger"
+      <button *ngIf="(loggedUser.type != UserType.AGENT) && (ticket.status != TicketStatus.CLOSED)"
+              (click)="deleteTicket(ticket)" class="btn btn-sm btn-danger"
               title="Remove">
         <i class="glyphicon glyphicon-trash"></i>
       </button>
