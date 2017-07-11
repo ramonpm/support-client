@@ -3,6 +3,8 @@ import {Ticket} from '../models/ticket';
 import {Angular2TokenService} from 'angular2-token';
 import {TicketStatus} from '../enums/ticket-status.enum';
 import {UserType} from '../enums/user-type.enum';
+import {saveAs as importedSaveAs} from 'file-saver';
+import {ResponseContentType} from '@angular/http';
 
 @Component({
   selector: 'app-tickets',
@@ -40,4 +42,16 @@ export class TicketsComponent implements OnInit {
     );
   }
 
+  downloadReport() {
+    this._tokenService.get('tickets/pdf_report', {responseType: ResponseContentType.Blob})
+      .map(res => res.blob())
+      .subscribe(
+        data => {
+          const blob = new Blob([data], {type: 'application/pdf'});
+          importedSaveAs(blob, 'testData.pdf');
+        },
+        err => console.error(err),
+        () => console.log('done')
+      );
+  }
 }
