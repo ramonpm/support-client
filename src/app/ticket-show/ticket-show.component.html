@@ -4,11 +4,11 @@
   <dd>{{ticket.user.email}}</dd>
   <dt>Description:</dt>
   <dd>{{ticket.description}}</dd>
-  <dt *ngIf="ticket.finished_at">Finished at:</dt>
-  <dd *ngIf="ticket.finished_at">{{ticket.finished_at | date: 'medium'}}</dd>
+  <dt *ngIf="ticket.closed_at">Closed at:</dt>
+  <dd *ngIf="ticket.closed_at">{{ticket.closed_at | date: 'medium'}}</dd>
 </dl>
 
-<button *ngIf="!ticket.finished_at" id="closeButton" (click)="closeTicket()" class="btn btn-danger">
+<button *ngIf="!ticket.closed_at" id="closeButton" (click)="closeTicket()" class="btn btn-danger">
   Close
 </button>
 <hr>

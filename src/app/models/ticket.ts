@@ -4,6 +4,6 @@ export class Ticket {
   title: string;
   description: string;
   status: number;
-  finished_at: Date;
+  closed_at: Date;
   user: User = new User();
 }
