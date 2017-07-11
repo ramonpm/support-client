@@ -46,22 +46,15 @@ export class RegisterFormComponent implements OnInit {
   }
 
   isAdmin(): boolean {
-    return this.state.is('admin-new-user') || this.state.is('admin-edit-user');
+    return this.state.is('admin-new-user');
   }
 
   onSignUpSubmit() {
     if (this.isAdmin()) {
-      if (this.state.is('admin-edit-user')) {
-        this._tokenService.put('users/' + this.signUpUser.id, this.signUpUser).subscribe(
-          res => this.router.navigate(['/users']),
-          error => console.log('Error updating user')
-        );
-      } else {
-        this._tokenService.post('users', this.signUpUser).subscribe(
-          res => this.router.navigate(['/users']),
-          error => console.log('Error creating user')
-        );
-      }
+      this._tokenService.post('auth', this.signUpUser).subscribe(
+        res => this.router.navigate(['/users']),
+        error => console.log('Error creating user')
+      );
     } else {
       this.authService.registerUser(this.signUpUser).subscribe(
         (res) => {

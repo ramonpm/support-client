@@ -58,12 +58,6 @@ export const routes: Routes = [
     component: RegisterFormComponent,
     data: {stateName: 'admin-new-user'},
     canActivate: [AuthGuard, AdminGuard]
-  },
-  {
-    path: 'users/:id/edit',
-    component: RegisterFormComponent,
-    data: {stateName: 'admin-edit-user'},
-    canActivate: [AuthGuard, AdminGuard]
   }
 ];
 
