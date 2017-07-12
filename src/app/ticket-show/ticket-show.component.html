@@ -24,8 +24,9 @@
     <dd>{{answer.message}}</dd>
   </dl>
 </div>
+<div *ngIf="!answers.length">No answer yet</div>
 
-<form (ngSubmit)="onAnswerSubmit()" #f="ngForm">
+<form *ngIf="(_tokenService.currentUserData.type != UserType.CUSTOMER) || ticket.status == TicketStatus.ANSWERED" (ngSubmit)="onAnswerSubmit()" #f="ngForm">
   <input type="hidden" name="ticket_id" value="{{ticket.id}}">
   <div class="form-group">
     <label for="message">Message</label>

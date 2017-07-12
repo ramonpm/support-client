@@ -27,7 +27,7 @@
               routerLink="{{ticket.id}}/edit" class="btn btn-sm btn-warning">
         <i class="glyphicon glyphicon-pencil"></i>
       </button>
-      <button *ngIf="(loggedUser.type != UserType.AGENT) && (ticket.status != TicketStatus.CLOSED)"
+      <button *ngIf="(loggedUser.type != UserType.AGENT) && (ticket.status == TicketStatus.PENDING)"
               (click)="deleteTicket(ticket)" class="btn btn-sm btn-danger"
               title="Remove">
         <i class="glyphicon glyphicon-trash"></i>
