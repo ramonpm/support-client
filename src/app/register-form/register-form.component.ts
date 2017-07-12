@@ -19,7 +19,7 @@ export class RegisterFormComponent implements OnInit {
     email: '',
     password: '',
     passwordConfirmation: '',
-    type: UserType.AGENT
+    type: UserType.CUSTOMER
   };
 
   @Output() onFormResult = new EventEmitter<any>();
