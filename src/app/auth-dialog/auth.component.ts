@@ -1,6 +1,7 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActiveStateService} from '../active-state.service';
 import {Router} from '@angular/router';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-auth-dialog',
@@ -12,7 +13,9 @@ export class AuthComponent implements OnInit {
 
   login = true;
 
-  constructor(private state: ActiveStateService, private router: Router) {
+  constructor(private state: ActiveStateService,
+              private authService: AuthService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -29,7 +32,10 @@ export class AuthComponent implements OnInit {
 
   onRegisterFormResult(e) {
     if (e.signedUp) {
-      this.router.navigate(['/tickets']);
+      this.authService.logOutUser().subscribe(
+        res => this.router.navigate(['/login']),
+        err => alert(err)
+      );
     } else {
       alert(e.err.json().errors.full_messages[0])
     }
