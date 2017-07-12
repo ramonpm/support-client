@@ -16,6 +16,7 @@ import {TicketFormComponent} from './ticket-form/ticket-form.component';
 import {TicketShowComponent} from './ticket-show/ticket-show.component';
 import {UsersComponent} from './users/users.component';
 import {AdminGuard} from './guards/admin.guard';
+import {APP_BASE_HREF} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import {AdminGuard} from './guards/admin.guard';
     BrowserModule,
     FormsModule
   ],
-  providers: [Angular2TokenService, AuthService, AdminGuard],
+  providers: [Angular2TokenService, AuthService, AdminGuard, {provide: APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
